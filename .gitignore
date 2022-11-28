@@ -6,6 +6,8 @@
 #
 Data/
 .venv
+src/stargan/Models
+src/stargan/Vocoder
 
 # User-specific files
 *.rsuser
