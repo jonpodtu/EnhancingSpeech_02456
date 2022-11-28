@@ -7,6 +7,7 @@ import os
 from math import floor
 import random
 from tqdm import tqdm
+import argparse
 
 def butter_params(low_freq, high_freq, fs, order=5):
     nyq = 0.5 * fs
@@ -21,21 +22,18 @@ def butter_bandpass_filter(data, low_freq, high_freq, fs, order=5):
     return y
 
 if __name__ == '__main__':
-    random.seed(42)
+    inargs = argparse.ArgumentParser()
+    inargs.add_argument(
+        "--liststyles",
+        nargs="*",
+        type=str,
+        default=['p228', 'p225', 'p233'],
+    )
+
     data_path = 'Data'
-    speakers = []
-    for entry in os.listdir(data_path):
-        if os.path.isdir(os.path.join(data_path, entry)):
-            if entry[0] == 'p':
-                speakers.append(entry)
+    args = inargs.parse_args()
 
-    # Choose random speakers:
-    no_sample = floor(len(speakers)/2)
-    chosen_speakers = random.sample(speakers, no_sample)
-
-    print(chosen_speakers)
-
-    for speaker in tqdm(chosen_speakers):
+    for speaker in tqdm(args.liststyles):
         # List files:
         files = os.scandir("Data/"+speaker)
         for file in files:
@@ -46,6 +44,3 @@ if __name__ == '__main__':
             filtered_signal = butter_bandpass_filter(audio, low_freq, high_freq, fs, order=6)
             fname = filepath
             write(fname,fs,array(filtered_signal,dtype=int16))
-
-# Speakers transformed:
-# ['p254', 'p270', 'p273', 'p230', 'p259', 'p240', 'p244', 'p225', 'p227', 'p233']
