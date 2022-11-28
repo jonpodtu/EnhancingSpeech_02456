@@ -7,6 +7,7 @@ import os
 from math import floor
 import random
 from tqdm import tqdm
+import argparse
 
 
 def butter_params(low_freq, high_freq, fs, order=5):
@@ -24,6 +25,14 @@ def butter_bandpass_filter(data, low_freq, high_freq, fs, order=5):
 
 
 if __name__ == "__main__":
+    inargs = argparse.ArgumentParser()
+    inargs.add_argument(
+        "--liststyles",
+        nargs="*",
+        type=str,
+        default=["p228", "p225", "p233"],
+    )
+
     vctk_dir = "/work3/jonpo/VCTK"
     os.chdir(vctk_dir)
 
@@ -32,14 +41,14 @@ if __name__ == "__main__":
 
     random.seed(42)
 
-    speakers = []
-    for entry in os.listdir(data_path):
-        if os.path.isdir(os.path.join(data_path, entry)):
-            if entry[0] == "p":
-                speakers.append(entry)
-
-    # Choose random speakers:
-    no_sample = floor(len(speakers) / 2)
+    speakers = inargs.liststyles
+    # for entry in os.listdir(data_path):
+    #    if os.path.isdir(os.path.join(data_path, entry)):
+    #        if entry[0] == "p":
+    #            speakers.append(entry)
+    #
+    ## Choose random speakers:
+    # no_sample = floor(len(speakers) / 2)
     # chosen_speakers = random.sample(speakers, no_sample)
 
     print(speakers)

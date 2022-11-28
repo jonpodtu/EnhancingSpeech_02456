@@ -5,6 +5,7 @@
 
 #
 Data/
+.venv
 
 # User-specific files
 *.rsuser
