@@ -1,17 +1,17 @@
-# EnhancingSpeech
+# Enhancing Speech
 
-Enhancing voices to improve speech intelligibility, by training a GAN model to learn a mapping from audio input spectrograms to style encoded target speakers inspired by StarGAN.
+Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone conversations to be less distorted?
 
 # Proof of Concept
 
-In order to ensure that the there is a need for this project *EDIT CHANGE THIS*, we tested that the StarGAN-v2 VC model could not clean distorted audio out of the box. The utterances of one of the speakers can be seen below.
+In order to ensure that the there is a need for this project *EDIT CHANGE THIS*, we tested whether StarGAN-v2 VC model could clean distorted audio out of the box. The utterances of one of the speakers can be seen below.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Original </th>
-      <th style="text-align: center">Phone Distortion</th>
-      <th style="text-align: center">Distortion → Orignal)</th>
+      <th style="text-align: center">Original Audio Reading</th>
+      <th style="text-align: center">Reading with Phone Distortion</th>
+      <th style="text-align: center">StarGAN Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
