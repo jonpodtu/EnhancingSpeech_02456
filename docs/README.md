@@ -4,7 +4,7 @@ Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone c
 
 # Proof of Concept
 
-In order to ensure that the there is a need for this project *EDIT CHANGE THIS*, we tested whether StarGAN-v2 VC model could clean distorted audio out of the box. The utterances of one of the speakers can be seen below.
+The StarGANv2-VC model is able to convert speech with an unrecognized input speaker. As such, we tested whether StarGAN-v2 VC model could clean distorted audio out of the box. The utterances of one of the speakers can be seen below.
 
 <table>
   <thead>
@@ -22,3 +22,5 @@ In order to ensure that the there is a need for this project *EDIT CHANGE THIS*,
     </tr>
   </tbody>
 </table>
+
+As can be heard, the StarGANv2-VC model cannot remove the introduced distortion, when it has not trained on distorted noise.
