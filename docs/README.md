@@ -6,15 +6,12 @@ Enhancing voices to improve speech intelligibility, by training a GAN model to l
 
 In order to ensure that the there is a need for this project *EDIT CHANGE THIS*, we tested that the StarGAN-v2 VC model could not clean distorted audio out of the box. The utterances of one of the speakers can be seen below.
 
-Hello
-
-
 <table>
   <thead>
     <tr>
-      <th style="text-align: center"> </th>
-      <th style="text-align: center">Sample 1 (p229 → p236)</th>
-      <th style="text-align: center">Sample 2 (p231 → p230)</th>
+      <th style="text-align: center">Original </th>
+      <th style="text-align: center">Phone Distortion</th>
+      <th style="text-align: center">Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
