@@ -9,8 +9,8 @@ The StarGANv2-VC model is able to convert speech with an unrecognized input spea
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Original Audio Reading</th>
-      <th style="text-align: center">Reading with Distortion</th>
+      <th style="text-align: center">Original Audio Recording</th>
+      <th style="text-align: center">Recoding with Distortion</th>
       <th style="text-align: center">StarGANv2-VC Mapping<br>(Distortion → Orignal)</th>
     </tr>
   </thead>
