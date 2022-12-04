@@ -27,6 +27,8 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 # Training on Noisy Data
 
+We added constructed, noisy versions of the data the model trained on
+
 <table>
   <thead>
     <tr>
