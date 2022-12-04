@@ -1,2 +1,3 @@
-# EnhancingSpeech
-Enhancing voices to improve speech intelligibility, by training a GAN model to learn a mapping from audio input spectrograms to style encoded target speakers inspired by StarGAN.
+# Enhancing Speech
+
+Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone conversations to be less distorted?
