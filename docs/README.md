@@ -27,7 +27,7 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 # Training on Noisy Data
 
-We added the constructed, distorted versions of the data, and trained the model on this in addition to the original training data.
+We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data.
 
 <table>
   <thead>
@@ -42,6 +42,27 @@ We added the constructed, distorted versions of the data, and trained the model 
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_PhoneData\p228.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_PhoneData\p228_phone.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_PhoneData\p228_phone_to_p228.wav" />&lt;/source&gt; </audio></td>
+    </tr>
+  </tbody>
+</table>
+
+# PhoneHome Model
+
+We added Depthwise Separable Convolutions to the StarGANv2-VC model, resulting in the following improvements (hopefully)
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Original Audio Recording</th>
+      <th style="text-align: center">Recoding with Distortion</th>
+      <th style="text-align: center">StarGANv2-VC trained on Noisy Data <br> Mapping (Distortion → Orignal)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\PhoneHome_PhoneData\p228.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/PhoneHome_PhoneData\p228_phone.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/PhoneHome_PhoneData\p228_phone_to_p228.wav" />&lt;/source&gt; </audio></td>
     </tr>
   </tbody>
 </table>
