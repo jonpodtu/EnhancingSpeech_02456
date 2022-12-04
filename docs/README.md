@@ -34,7 +34,7 @@ We added the constructed, distorted versions of the data, and trained the StarGA
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
       <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC trained on Noisy Data <br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">StarGANv2-VC trained on Noisy <br> Data Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
@@ -55,7 +55,7 @@ We added Depthwise Separable Convolutions to the StarGANv2-VC model, resulting i
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
       <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC trained on Noisy Data <br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
