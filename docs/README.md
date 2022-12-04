@@ -27,14 +27,14 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 # Training on Noisy Data
 
-We added constructed, noisy versions of the data the model trained on
+We added the constructed, distorted versions of the data, and trained the model on this in addition to the original training data.
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
       <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC Mapping<br>(Distortion → Orignal)</th>
+      <th style="text-align: center">StarGANv2-VC trained on Noisy Data <br> Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
