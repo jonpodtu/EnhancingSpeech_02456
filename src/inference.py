@@ -18,7 +18,16 @@ import soundfile as sf
 
 from stargan.Utils.ASR.models import ASRCNN
 from stargan.Utils.JDC.model import JDCNet
-from stargan.models import Generator, MappingNetwork, StyleEncoder
+#from stargan.models_depthwise_convolutions import Generator, MappingNetwork, StyleEncoder
+
+DEPTHWISE_CONVOLUTION = True
+
+if DEPTHWISE_CONVOLUTION:
+    from stargan.models_depthwise_convolutions import Generator, MappingNetwork, StyleEncoder
+else:
+    from stargan.models import Generator, MappingNetwork, StyleEncoder
+
+
 
 # Source: http://speech.ee.ntu.edu.tw/~jjery2243542/resource/model/is18/en_speaker_used.txt
 # Source: https://github.com/jjery2243542/voice_conversion

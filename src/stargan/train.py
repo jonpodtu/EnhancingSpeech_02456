@@ -18,12 +18,20 @@ from munch import Munch
 
 from meldataset import build_dataloader
 from optimizers import build_optimizer
-from models import build_model
+
 from trainer import Trainer
 from torch.utils.tensorboard import SummaryWriter
 
 from Utils.ASR.models import ASRCNN
 from Utils.JDC.model import JDCNet
+
+DEPTHWISE_CONVOLUTION = True
+
+if DEPTHWISE_CONVOLUTION:
+    from models_depthwise_convolutions import build_model
+else:
+    from models import build_model
+
 
 import logging
 from logging import StreamHandler
