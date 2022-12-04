@@ -33,29 +33,31 @@ if __name__ == "__main__":
         default=["p228", "p225", "p233"],
     )
 
-    vctk_dir = "/work3/jonpo/VCTK"
+    args = inargs.parse_args()
+    speakers = args.liststyles
+
+    vctk_dir = "Data"
     os.chdir(vctk_dir)
 
-    data_path = "Data"
-    out_data_path = "Filtered"
+    data_path = "DTU"
+    out_data_path = "DTU"
 
+    speakers = []
     random.seed(42)
-
-    speakers = inargs.liststyles
-    # for entry in os.listdir(data_path):
-    #    if os.path.isdir(os.path.join(data_path, entry)):
-    #        if entry[0] == "p":
-    #            speakers.append(entry)
-    #
-    ## Choose random speakers:
+    for entry in os.listdir(data_path):
+        if os.path.isdir(os.path.join(data_path, entry)):
+            if entry[0] == "p":
+                speakers.append(entry)
+    #     Choose random speakers:
     # no_sample = floor(len(speakers) / 2)
     # chosen_speakers = random.sample(speakers, no_sample)
+    chosen_speakers = speakers
 
     print(speakers)
 
     for speaker in tqdm(speakers):
         # List files:
-        output_dir = os.path.join(out_data_path, speaker)
+        output_dir = os.path.join(out_data_path, speaker + "_filter")
         if not os.path.exists(output_dir):
             os.mkdir(output_dir)
 
