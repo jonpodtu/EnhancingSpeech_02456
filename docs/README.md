@@ -4,7 +4,7 @@ Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone c
 
 # Proof of Concept
 
-The StarGANv2-VC model is able to convert speech with an unrecognized input speaker. As such, we tested whether StarGAN-v2 VC model could clean distorted audio out of the box. The utterances of one of the speakers can be heard below.
+The StarGANv2-VC model is able to convert speech of an unrecognized input speaker. As such, we tested whether the StarGAN-v2 VC model could clean distorted audio out of the box. The utterances of one of the speakers can be heard below.
 
 <table>
   <thead>
@@ -23,7 +23,7 @@ The StarGANv2-VC model is able to convert speech with an unrecognized input spea
   </tbody>
 </table>
 
-As can be heard, the StarGANv2-VC model cannot remove the introduced distortion, when it has not trained on distorted noise.
+As can be heard, the StarGANv2-VC model cannot remove the introduced distortion, when it has not been trained on distorted noise.
 
 # Training on Noisy Data
 
@@ -48,7 +48,7 @@ We added the constructed, distorted versions of the data, and trained the StarGA
 
 # PhoneHome Model
 
-We added Depthwise Separable Convolutions to the StarGANv2-VC model, resulting in the following improvements (hopefully)
+We replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices.
 
 <table>
   <thead>
