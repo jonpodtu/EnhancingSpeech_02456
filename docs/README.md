@@ -17,7 +17,6 @@ The StarGANv2-VC model is able to convert speech of an unrecognized input speake
     <tr>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_NoPhoneTrain\original.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\distorted.wav" />&lt;/source&gt; </audio></td>
-
     </tr>
   </tbody>
 </table>
@@ -36,7 +35,7 @@ We replaced standard convolutions in the StarGANv2-VC with depthwise separable c
     <tr>
       <th style="text-align: center">StarGANv2-VC untrained on Distorted<br> Mapping (Distortion → Orignal)</th>
       <th style="text-align: center">StarGANv2-VC trained on Distorted<br> Data Mapping (Distortion → Orignal)</th>
-            <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
