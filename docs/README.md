@@ -27,14 +27,14 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 # Training on Noisy Data
 
-We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data. We also replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices. Listen below to see if you can hear a difference!
+We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data. We then replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices. Listen below to see if you can hear a difference!
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">StarGANv2-VC untrained on Distorted<br> Mapping (Distortion → Orignal)</th>
       <th style="text-align: center">StarGANv2-VC trained on Distorted<br> Data Mapping (Distortion → Orignal)</th>
-      <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">StarGANv2-VC with depthwise Convolutionstrained on Distorted<br> Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
