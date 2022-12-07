@@ -16,8 +16,8 @@ The StarGANv2-VC model is able to convert speech of an unrecognized input speake
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\distorted.wav" />&lt;/source&gt; </audio></td>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_NoPhoneTrain\original.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\original.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_NoPhoneTrain\distorted.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\reconstructed.wav" />&lt;/source&gt; </audio></td>
     </tr>
   </tbody>
