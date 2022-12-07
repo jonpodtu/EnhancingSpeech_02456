@@ -11,14 +11,13 @@ The StarGANv2-VC model is able to convert speech of an unrecognized input speake
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
       <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC Mapping<br>(Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_NoPhoneTrain\original.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\distorted.wav" />&lt;/source&gt; </audio></td>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\reconstructed.wav" />&lt;/source&gt; </audio></td>
+
     </tr>
   </tbody>
 </table>
@@ -29,39 +28,21 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Original Audio Recording</th>
-      <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC trained on Noisy <br> Data Mapping (Distortion → Orignal)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\VanillaModel_PhoneData\p228.wav" />&lt;/source&gt; </audio></td>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_PhoneData\p228_phone.wav" />&lt;/source&gt; </audio></td>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_PhoneData\p228_phone_to_p228.wav" />&lt;/source&gt; </audio></td>
-    </tr>
-  </tbody>
-</table>
-
-# PhoneHome Model
 
 We replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Original Audio Recording</th>
-      <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">StarGANv2-VC untrained on Distorted<br> Mapping (Distortion → Orignal)</th>
+      <th style="text-align: center">StarGANv2-VC trained on Distorted<br> Data Mapping (Distortion → Orignal)</th>
+            <th style="text-align: center">PhoneHome Model <br> Mapping (Distortion → Orignal)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs\samples\PhoneHome_PhoneData\p228.wav" />&lt;/source&gt; </audio></td>
-      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/PhoneHome_PhoneData\p228_phone.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_NoPhoneTrain\reconstructed.wav" />&lt;/source&gt; </audio></td>
+      <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/VanillaModel_PhoneData\p228_phone_to_p228.wav" />&lt;/source&gt; </audio></td>
       <td style="text-align: center"><audio controls="controls">  <source type="audio/wav" src="https://raw.githubusercontent.com/jonpodtu/EnhancingSpeech_02456/master/docs/samples/PhoneHome_PhoneData\p228_phone_to_p228.wav" />&lt;/source&gt; </audio></td>
     </tr>
   </tbody>
