@@ -33,7 +33,7 @@ We added the constructed, distorted versions of the data, and trained the StarGA
   <thead>
     <tr>
       <th style="text-align: center">StarGANv2-VC,<br> Mapping (Distortion → Original)</th>
-      <th style="text-align: center">StarGANv2-VC trained on distorted data,<br> Data Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC trained on distorted data,<br> Mapping (Distortion → Original)</th>
       <th style="text-align: center">StarGANv2-VC (reduced) trained on distorted data,<br> Mapping (Distortion → Original)</th>
     </tr>
   </thead>
