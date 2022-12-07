@@ -11,7 +11,7 @@ The StarGANv2-VC model is able to convert speech of an unrecognized input speake
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
       <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC untrained on Distorted<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC untrained on Distorted,<br> Mapping (Distortion → Original)</th>
     </tr>
   </thead>
   <tbody>
@@ -32,9 +32,9 @@ We added the constructed, distorted versions of the data, and trained the StarGA
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">StarGANv2-VC untrained on Distorted<br> Mapping (Distortion → Original)</th>
-      <th style="text-align: center">StarGANv2-VC trained on Distorted<br> Data Mapping (Distortion → Original)</th>
-      <th style="text-align: center">StarGANv2-VC DSC trained on Distorted<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC untrained on Distorted,<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC trained on Distorted,<br> Data Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC DSC trained on Distorted,<br> Mapping (Distortion → Original)</th>
     </tr>
   </thead>
   <tbody>
