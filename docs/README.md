@@ -10,8 +10,8 @@ The StarGANv2-VC model is able to convert speech of an unrecognized input speake
   <thead>
     <tr>
       <th style="text-align: center">Original Audio Recording</th>
-      <th style="text-align: center">Recoding with Distortion</th>
-      <th style="text-align: center">StarGANv2-VC untrained on Distorted,<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">Same Clip with Distortion</th>
+      <th style="text-align: center">StarGANv2-VC,<br> Mapping (Distortion → Original)</th>
     </tr>
   </thead>
   <tbody>
@@ -27,14 +27,14 @@ As can be heard, the StarGANv2-VC model cannot remove the introduced distortion,
 
 # Training on Noisy Data
 
-We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data. We then replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices. Listen below to see if you can hear a difference!
+We added the constructed, distorted versions of the data, and trained the StarGANv2-VC model on this in addition to the original training data. We then replaced standard convolutions in the StarGANv2-VC with depthwise separable convolutions which resulted in a 63 % total reduction in the number of trainable model parameters, to conform with the aims of augmentedhearing.io to have a model better fit for mobile devices. Listen below to see if you can hear a difference! This second model version is known as the "reduced" model.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">StarGANv2-VC untrained on Distorted,<br> Mapping (Distortion → Original)</th>
-      <th style="text-align: center">StarGANv2-VC trained on Distorted,<br> Data Mapping (Distortion → Original)</th>
-      <th style="text-align: center">StarGANv2-VC DSC trained on Distorted,<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC,<br> Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC trained on distorted data,<br> Data Mapping (Distortion → Original)</th>
+      <th style="text-align: center">StarGANv2-VC (reduced) trained on distorted data,<br> Mapping (Distortion → Original)</th>
     </tr>
   </thead>
   <tbody>
