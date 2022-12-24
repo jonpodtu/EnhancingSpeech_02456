@@ -18,9 +18,22 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-def Conv2d_depthwise(in_channels, out_channels, kernel_size, stride=1, padding=0,bias=True):
-    depth_conv = nn.Conv2d(in_channels=in_channels, out_channels=in_channels, kernel_size=kernel_size, stride=stride,padding=padding,bias=bias,groups=in_channels)
-    point_conv = nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=1)
+
+def Conv2d_depthwise(
+    in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True
+):
+    depth_conv = nn.Conv2d(
+        in_channels=in_channels,
+        out_channels=in_channels,
+        kernel_size=kernel_size,
+        stride=stride,
+        padding=padding,
+        bias=bias,
+        groups=in_channels,
+    )
+    point_conv = nn.Conv2d(
+        in_channels=in_channels, out_channels=out_channels, kernel_size=1
+    )
 
     depthwise_separable_conv = torch.nn.Sequential(depth_conv, point_conv)
 
@@ -82,8 +95,8 @@ class ResBlk(nn.Module):
         self._build_weights(dim_in, dim_out)
 
     def _build_weights(self, dim_in, dim_out):
-        self.conv1 = Conv2d_depthwise(dim_in, dim_in, 3, 1, 1) #TODO
-        self.conv2 = Conv2d_depthwise(dim_in, dim_out, 3, 1, 1) #TODO
+        self.conv1 = Conv2d_depthwise(dim_in, dim_in, 3, 1, 1)  # TODO
+        self.conv2 = Conv2d_depthwise(dim_in, dim_out, 3, 1, 1)  # TODO
         if self.normalize:
             self.norm1 = nn.InstanceNorm2d(dim_in, affine=True)
             self.norm2 = nn.InstanceNorm2d(dim_in, affine=True)
@@ -145,12 +158,14 @@ class AdainResBlk(nn.Module):
         self._build_weights(dim_in, dim_out, style_dim)
 
     def _build_weights(self, dim_in, dim_out, style_dim=64):
-        self.conv1 = Conv2d_depthwise(dim_in, dim_out, 3, 1, 1) #TODO
-        self.conv2 = Conv2d_depthwise(dim_out, dim_out, 3, 1, 1) #TODO
+        self.conv1 = Conv2d_depthwise(dim_in, dim_out, 3, 1, 1)  # TODO
+        self.conv2 = Conv2d_depthwise(dim_out, dim_out, 3, 1, 1)  # TODO
         self.norm1 = AdaIN(style_dim, dim_in)
         self.norm2 = AdaIN(style_dim, dim_out)
         if self.learned_sc:
-            self.conv1x1 = Conv2d_depthwise(dim_in, dim_out, 1, 1, 0, bias=False) #TODO
+            self.conv1x1 = Conv2d_depthwise(
+                dim_in, dim_out, 1, 1, 0, bias=False
+            )  # TODO
 
     def _shortcut(self, x):
         x = self.upsample(x)
@@ -184,7 +199,7 @@ class HighPass(nn.Module):
 
     def forward(self, x):
         filter = self.filter.unsqueeze(0).unsqueeze(1).repeat(x.size(1), 1, 1, 1)
-        return F.conv2d(x, filter, padding=1, groups=x.size(1)) #TODO
+        return F.conv2d(x, filter, padding=1, groups=x.size(1))  # TODO
 
 
 class Generator(nn.Module):
@@ -193,7 +208,7 @@ class Generator(nn.Module):
     ):
         super().__init__()
 
-        self.stem = Conv2d_depthwise(1, dim_in, 3, 1, 1) #TODO
+        self.stem = Conv2d_depthwise(1, dim_in, 3, 1, 1)  # TODO
         self.encode = nn.ModuleList()
         self.decode = nn.ModuleList()
         self.to_out = nn.Sequential(
@@ -324,7 +339,7 @@ class StyleEncoder(nn.Module):
     def __init__(self, dim_in=48, style_dim=48, num_domains=2, max_conv_dim=384):
         super().__init__()
         blocks = []
-        blocks += [Conv2d_depthwise(1, dim_in, 3, 1, 1)] #TODO
+        blocks += [Conv2d_depthwise(1, dim_in, 3, 1, 1)]  # TODO
 
         repeat_num = 4
         for _ in range(repeat_num):
@@ -333,7 +348,7 @@ class StyleEncoder(nn.Module):
             dim_in = dim_out
 
         blocks += [nn.LeakyReLU(0.2)]
-        blocks += [Conv2d_depthwise(dim_out, dim_out, 5, 1, 0)] #TODO
+        blocks += [Conv2d_depthwise(dim_out, dim_out, 5, 1, 0)]  # TODO
         blocks += [nn.AdaptiveAvgPool2d(1)]
         blocks += [nn.LeakyReLU(0.2)]
         self.shared = nn.Sequential(*blocks)
@@ -401,7 +416,7 @@ class Discriminator2d(nn.Module):
     def __init__(self, dim_in=48, num_domains=2, max_conv_dim=384, repeat_num=4):
         super().__init__()
         blocks = []
-        blocks += [Conv2d_depthwise(1, dim_in, 3, 1, 1)] #TODO
+        blocks += [Conv2d_depthwise(1, dim_in, 3, 1, 1)]  # TODO
 
         for lid in range(repeat_num):
             dim_out = min(dim_in * 2, max_conv_dim)
@@ -409,7 +424,7 @@ class Discriminator2d(nn.Module):
             dim_in = dim_out
 
         blocks += [nn.LeakyReLU(0.2)]
-        blocks += [Conv2d_depthwise(dim_out, dim_out, 5, 1, 0)] #TODO
+        blocks += [Conv2d_depthwise(dim_out, dim_out, 5, 1, 0)]  # TODO
         blocks += [nn.LeakyReLU(0.2)]
         blocks += [nn.AdaptiveAvgPool2d(1)]
         blocks += [nn.Conv2d(dim_out, num_domains, 1, 1, 0)] #TODO

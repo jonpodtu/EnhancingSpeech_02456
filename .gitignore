@@ -8,7 +8,6 @@ Data.zip
 Data/
 .venv
 src/stargan/Models
-src/stargan/Vocoder
 outputs
 
 # User-specific files
