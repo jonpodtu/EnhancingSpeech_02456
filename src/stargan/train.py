@@ -25,14 +25,6 @@ from torch.utils.tensorboard import SummaryWriter
 from Utils.ASR.models import ASRCNN
 from Utils.JDC.model import JDCNet
 
-DEPTHWISE_CONVOLUTION = True
-
-if DEPTHWISE_CONVOLUTION:
-    from models_depthwise_convolutions import build_model
-else:
-    from models import build_model
-
-
 import logging
 from logging import StreamHandler
 logger = logging.getLogger(__name__)
@@ -68,7 +60,15 @@ def main(config_path):
     val_path = config.get('val_data', None)
     stage = config.get('stage', 'star')
     fp16_run = config.get('fp16_run', False)
+    depthwise = config.get('depthwise', True)
     
+    if depthwise:
+        from models_depthwise_convolutions import build_model
+        print("Using depthwise seperable convolutions")
+    else:
+        from models import build_model
+        print("Using old fashioned boring convolution")
+
     # load data
     train_list, val_list = get_data_path_list(train_path, val_path)
     train_dataloader = build_dataloader(train_list,

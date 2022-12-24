@@ -443,6 +443,15 @@ def build_model(args, F0_model, ASR_model):
     mapping_network_ema = copy.deepcopy(mapping_network)
     style_encoder_ema = copy.deepcopy(style_encoder)
 
+    params = sum(p.numel() for p in generator.parameters() if p.requires_grad)
+    print("Generator:\n", params)
+    params = sum(p.numel() for p in mapping_network.parameters() if p.requires_grad)
+    print("mapping_network:\n", params)
+    params = sum(p.numel() for p in discriminator.parameters() if p.requires_grad)
+    print("discriminator:\n", params)
+    params = sum(p.numel() for p in style_encoder.parameters() if p.requires_grad)
+    print("style encoder:\n", params)
+
     nets = Munch(
         generator=generator,
         mapping_network=mapping_network,

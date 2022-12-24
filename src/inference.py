@@ -159,9 +159,9 @@ if __name__ == "__main__":
 
     # load starganv2
 
-    model_path = "outputs/StarganPhoneHome/epoch_00118.pth"
+    model_path = "outputs/BeamMeUpScottieA100/epoch_00100.pth"
 
-    with open("outputs/StarganPhoneHome/config.yml") as f:
+    with open("outputs/BeamMeUpScottieA100/config.yml") as f:
         starganv2_config = yaml.safe_load(f)
     starganv2 = build_model(model_params=starganv2_config["model_params"])
     params = torch.load(model_path, map_location="cpu")

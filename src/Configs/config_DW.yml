@@ -1,4 +1,4 @@
-log_dir: "outputs/V2"
+log_dir: "outputs/V2_DW"
 save_freq: 10
 device: "cuda"
 epochs: 150
@@ -6,7 +6,7 @@ batch_size: 24
 pretrained_model: ""
 load_only_params: false
 fp16_run: true
-depthwise: false
+depthwise: true
 
 train_data: "Data/VCTK/Data/train_list.txt"
 val_data: "Data/VCTK/Data/train_list.txt"

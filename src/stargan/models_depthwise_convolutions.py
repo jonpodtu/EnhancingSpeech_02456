@@ -88,7 +88,7 @@ class ResBlk(nn.Module):
             self.norm1 = nn.InstanceNorm2d(dim_in, affine=True)
             self.norm2 = nn.InstanceNorm2d(dim_in, affine=True)
         if self.learned_sc:
-            self.conv1x1 = Conv2d_depthwise(dim_in, dim_out, 1, 1, 0, bias=False) #TODO
+            self.conv1x1 = nn.Conv2d(dim_in, dim_out, 1, 1, 0, bias=False) 
 
     def _shortcut(self, x):
         if self.learned_sc:
@@ -199,7 +199,7 @@ class Generator(nn.Module):
         self.to_out = nn.Sequential(
             nn.InstanceNorm2d(dim_in, affine=True),
             nn.LeakyReLU(0.2),
-            Conv2d_depthwise(dim_in, 1, 1, 1, 0),
+            nn.Conv2d(dim_in, 1, 1, 1, 0),
         ) #TODO
         self.F0_channel = F0_channel
         # down/up-sampling blocks
@@ -412,7 +412,7 @@ class Discriminator2d(nn.Module):
         blocks += [Conv2d_depthwise(dim_out, dim_out, 5, 1, 0)] #TODO
         blocks += [nn.LeakyReLU(0.2)]
         blocks += [nn.AdaptiveAvgPool2d(1)]
-        blocks += [Conv2d_depthwise(dim_out, num_domains, 1, 1, 0)] #TODO
+        blocks += [nn.Conv2d(dim_out, num_domains, 1, 1, 0)] #TODO
         self.main = nn.Sequential(*blocks)
 
     def get_feature(self, x):
@@ -450,6 +450,15 @@ def build_model(args, F0_model, ASR_model):
     generator_ema = copy.deepcopy(generator)
     mapping_network_ema = copy.deepcopy(mapping_network)
     style_encoder_ema = copy.deepcopy(style_encoder)
+
+    params = sum(p.numel() for p in generator.parameters() if p.requires_grad)
+    print("Generator:\n", params)
+    params = sum(p.numel() for p in mapping_network.parameters() if p.requires_grad)
+    print("mapping_network:\n", params)
+    params = sum(p.numel() for p in discriminator.parameters() if p.requires_grad)
+    print("discriminator:\n", params)
+    params = sum(p.numel() for p in style_encoder.parameters() if p.requires_grad)
+    print("style encoder:\n", params)
 
     nets = Munch(
         generator=generator,
