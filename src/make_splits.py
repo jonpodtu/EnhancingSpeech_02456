@@ -57,7 +57,8 @@ print(data_list)
 
 train_data, test_data = train_test_split(data_list, test_size=0.1, random_state=0, stratify=data_list[['Speaker']])
 
-# write to file
+# Write to txt files which will be used as lookup for the train loop for which data
+# is contained as train and which is for validation
 file_str = ""
 for index, k in train_data.iterrows():
     file_str += k["Path"] + "|" + str(k["Speaker"] - 1) + "\n"
