@@ -21,11 +21,11 @@ def butter_bandpass_filter(data, low_freq, high_freq, fs, order=5):
 
 
 if __name__ == "__main__":
-    vctk_dir = "Data"
+    vctk_dir = "Data/VCTK"
     os.chdir(vctk_dir)
 
-    data_path = "DTU"
-    out_data_path = "DTU"
+    data_path = "Data"
+    out_data_path = "Data"
 
     speakers = []
     random.seed(42)
