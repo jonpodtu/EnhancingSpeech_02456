@@ -1,13 +1,9 @@
 from scipy.signal import lfilter, butter
 from scipy.io.wavfile import read, write
 from numpy import array, int16
-import soundfile as sf
-import sys
 import os
-from math import floor
 import random
 from tqdm import tqdm
-import argparse
 
 
 def butter_params(low_freq, high_freq, fs, order=5):
@@ -25,17 +21,6 @@ def butter_bandpass_filter(data, low_freq, high_freq, fs, order=5):
 
 
 if __name__ == "__main__":
-    inargs = argparse.ArgumentParser()
-    inargs.add_argument(
-        "--liststyles",
-        nargs="*",
-        type=str,
-        default=["p228", "p225", "p233"],
-    )
-
-    args = inargs.parse_args()
-    speakers = args.liststyles
-
     vctk_dir = "Data"
     os.chdir(vctk_dir)
 
@@ -73,6 +58,3 @@ if __name__ == "__main__":
             )
             out_fname = os.path.join(output_dir, file.name)
             write(out_fname, fs, array(filtered_signal, dtype=int16))
-
-# Speakers transformed:
-# ['p254', 'p270', 'p273', 'p230', 'p259', 'p240', 'p244', 'p225', 'p227', 'p233']

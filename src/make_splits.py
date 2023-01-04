@@ -56,12 +56,6 @@ data_list = pd.DataFrame(data_list)
 print(data_list)
 
 train_data, test_data = train_test_split(data_list, test_size=0.1, random_state=0, stratify=data_list[['Speaker']])
-#data_list = data_list.sample(frac=1)
-
-# We simply make a hold out validation
-#split_idx = round(len(data_list) * 0.1)
-#test_data = data_list[:split_idx]
-#train_data = data_list[split_idx:]
 
 # write to file
 file_str = ""
