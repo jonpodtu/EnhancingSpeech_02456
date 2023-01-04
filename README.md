@@ -1,5 +1,5 @@
 # Enhancing Speech
-*Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone conversations to be less distorted? *
+*Can StarGANv2-VC be utilized as an intelligent audiofilter for upscaling phone conversations to be less distorted?*
 
 This repository relates to a Deep Learning university project conducted by 5 students from the Technical University of Denmark. The repository won't be further updated, as the project has reached its deadline.
 
